@@ -36,6 +36,10 @@ public/
   certs/                   # 個人證照與獎狀圖片資源
 ```
 
+## 網站連結
+
+- 線上作品集：https://hank920217.github.io/HANK/
+
 ## 快速開始
 
 ```bash
