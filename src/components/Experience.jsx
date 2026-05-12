@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, Award, Briefcase, Trophy, Store, Ticket, Utensils } from 'lucide-react';
 
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 const Experience = () => {
   const container = {
     hidden: { opacity: 0 },
@@ -59,15 +61,15 @@ const Experience = () => {
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {[
-                { name: "Microsoft AI-900", img: "/certs/AI-900.jpg" },
-                { name: "電腦硬體裝修乙級", img: "/certs/hardware_b.jpg" },
-                { name: "工業電子丙級", img: "/certs/hardware_c.jpg" },
-                { name: "IC3 國際證照", img: "/certs/ic3.jpg" },
-                { name: "TQC專案管理概論", img: "/certs/TQCFOM.jpg" },
-                { name: "TQC電子商務概論", img: "/certs/TQC-FOC.jpg" },
-                { name: "電子化助理規劃師", img: "/certs/EAP.jpg" },
-                { name: "電子化軟體應用師", img: "/certs/ESAP.jpg" },
-                { name: "實習表現優異",img: "/certs/good.jpg" },
+                { name: "Microsoft AI-900", img: assetPath("certs/AI-900.jpg") },
+                { name: "電腦硬體裝修乙級", img: assetPath("certs/hardware_b.jpg") },
+                { name: "工業電子丙級", img: assetPath("certs/hardware_c.jpg") },
+                { name: "IC3 國際證照", img: assetPath("certs/ic3.jpg") },
+                { name: "TQC專案管理概論", img: assetPath("certs/TQCFOM.jpg") },
+                { name: "TQC電子商務概論", img: assetPath("certs/TQC-FOC.jpg") },
+                { name: "電子化助理規劃師", img: assetPath("certs/EAP.jpg") },
+                { name: "電子化軟體應用師", img: assetPath("certs/ESAP.jpg") },
+                { name: "實習表現優異", img: assetPath("certs/good.jpg") },
             ].map((cert, idx) => (
                 <motion.div 
                     key={idx}

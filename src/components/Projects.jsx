@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FolderGit2, X, Trophy } from 'lucide-react';
 
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
 
@@ -11,14 +13,14 @@ const Projects = () => {
             desc: "使用 Python 與 OpenCV 進行即時臉部表情分析，應用於課堂專注度監測。",
             tags: ["Python", "OpenCV", "AI"],
             rank: "Award 1st",
-            certImg: "/certs/US.jpg" // Placeholder
+            certImg: assetPath("certs/US.jpg")
         },
         {
             title: "球型機器人控制",
             desc: "基於 Arduino 的球型滾動機器人，透過手機藍牙進行全向控制。",
             tags: ["C++", "Arduino", "Bluetooth"],
             rank: "Award 2nd",
-            certImg: "/certs/highschool.jpg" // Placeholder
+            certImg: assetPath("certs/highschool.jpg")
         },
         {
             title: "作品集網站 (This Website)",

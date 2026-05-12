@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { User, FolderGit2, FileText } from 'lucide-react';
 
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 const Hero = ({ setView }) => {
   return (
     <motion.div
@@ -19,7 +21,7 @@ const Hero = ({ setView }) => {
       >
         <div className="w-full h-full rounded-full bg-amber-950 overflow-hidden flex items-center justify-center border-4 border-amber-900/50 relative group">
           <img
-            src="/certs/profile.jpg"
+            src={assetPath('certs/profile.jpg')}
             alt="Profile"
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             onError={(e) => {

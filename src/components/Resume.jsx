@@ -2,6 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText } from 'lucide-react';
 
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`;
+const resumePdf = assetPath('certs/resume.pdf');
+
 const Resume = () => {
   return (
     <motion.div
@@ -16,7 +19,7 @@ const Resume = () => {
       <div className="bg-amber-950/60 border border-amber-500/25 rounded-2xl p-4 md:p-6 shadow-2xl">
         <div className="aspect-[768/1058] w-full rounded-xl overflow-hidden bg-amber-900/30">
           <object
-            data="/certs/resume.pdf"
+            data={resumePdf}
             type="application/pdf"
             className="w-full h-full"
             aria-label="曾俊翰履歷"
@@ -25,7 +28,7 @@ const Resume = () => {
               <FileText size={56} className="mb-4 opacity-70" />
               <p className="text-lg font-semibold mb-2">無法預覽履歷 PDF</p>
               <a
-                href="/certs/resume.pdf"
+                href={resumePdf}
                 className="text-sm md:text-base text-amber-100 underline underline-offset-4 hover:text-amber-300"
               >
                 開啟履歷 PDF
