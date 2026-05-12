@@ -7,12 +7,13 @@ const navItems = [
   { id: 'projects', label: '實作專案', icon: <FolderGit2 size={17} /> },
   { id: 'experience', label: '技術經歷', icon: <BriefcaseBusiness size={17} /> },
   { id: 'resume', label: '履歷', icon: <FileText size={17} /> },
+  { id: 'contact', label: '聯絡我', icon: <Mail size={17} /> },
 ];
 
-const Navigation = ({ view, setView, onContact }) => {
+const Navigation = ({ view, setView }) => {
   return (
     <motion.nav
-      className="fixed left-1/2 top-4 z-50 w-[calc(100%-1rem)] max-w-4xl -translate-x-1/2 px-2"
+      className="fixed left-1/2 top-4 z-50 w-[calc(100%-1rem)] max-w-5xl -translate-x-1/2 px-2"
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
@@ -38,15 +39,6 @@ const Navigation = ({ view, setView, onContact }) => {
             </button>
           );
         })}
-
-        <button
-          type="button"
-          onClick={onContact}
-          className="ml-auto flex shrink-0 items-center gap-2 rounded-full border border-[#2A9D8F]/35 px-3 py-2 text-sm font-semibold text-[#1E3A5F] transition-colors hover:bg-[#2A9D8F] hover:text-white sm:px-4"
-        >
-          <Mail size={17} />
-          <span>聯絡我</span>
-        </button>
       </div>
     </motion.nav>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Award,
@@ -6,14 +6,11 @@ import {
   BriefcaseBusiness,
   Code2,
   Cpu,
-  Github,
   GraduationCap,
-  Linkedin,
-  Mail,
-  Phone,
-  UserRound,
   Wrench,
 } from 'lucide-react';
+
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`;
 
 const skillGroups = [
   {
@@ -78,46 +75,21 @@ const education = [
 ];
 
 const mainCertifications = [
-  'Microsoft AI-900 AI 人工智慧基礎認證',
-  '乙級電腦硬體裝修技術士',
-  '丙級電腦硬體裝修技術士',
-  '丙級工業電子技術士',
-  'IC3 計算機綜合能力認證',
+  { name: 'Microsoft AI-900 AI 人工智慧基礎認證', image: 'certs/AI-900.jpg' },
+  { name: '乙級電腦硬體裝修技術士', image: 'certs/hardware_b.jpg' },
+  { name: '丙級工業電子技術士', image: 'certs/hardware_c.jpg' },
+  { name: 'IC3 計算機綜合能力認證', image: 'certs/ic3.jpg' },
+  { name: '高雄榮總實習表現優異', image: 'certs/good.jpg' },
 ];
 
 const otherCertifications = [
-  'TQC-DK 專案管理概論',
-  'TQC-DK 電子商務概論',
-  'EEC-ERP 軟體應用－配銷模組',
-  'EEC 企業電子化助理規劃師',
-  '高雄榮總實習表現優異',
-];
-
-const contactLinks = [
-  {
-    label: 'Email',
-    value: 'stone0982312946@gmail.com',
-    href: 'mailto:stone0982312946@gmail.com',
-    icon: <Mail size={19} />,
-  },
-  {
-    label: 'GitHub',
-    value: 'github.com/hank920217',
-    href: 'https://github.com/hank920217',
-    icon: <Github size={19} />,
-  },
-  {
-    label: 'LinkedIn',
-    value: 'linkedin.com/in/howard-460100216',
-    href: 'https://www.linkedin.com/in/howard-460100216',
-    icon: <Linkedin size={19} />,
-  },
-  {
-    label: 'Phone',
-    value: '0920-267-988',
-    href: 'tel:0920267988',
-    icon: <Phone size={19} />,
-  },
+  { name: 'TQC-DK 專案管理概論', image: 'certs/TQCFOM.jpg' },
+  { name: 'TQC-DK 電子商務概論', image: 'certs/TQC-FOC.jpg' },
+  { name: 'EEC-ERP 軟體應用－配銷模組', image: 'certs/ESAP.jpg' },
+  { name: 'EEC 企業電子化助理規劃師', image: 'certs/EAP.jpg' },
+  { name: 'PVQC 專業英文詞彙能力', image: 'certs/PVQC_1.jpg' },
+  { name: '全民英檢相關證明', image: 'certs/US.jpg' },
+  { name: '高中學習歷程相關證明', image: 'certs/highschool.jpg' },
 ];
 
 const SectionHeader = ({ icon, eyebrow, title, children }) => (
@@ -131,27 +103,34 @@ const SectionHeader = ({ icon, eyebrow, title, children }) => (
   </header>
 );
 
-const CertificationList = ({ items }) => (
-  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-    {items.map((item) => (
-      <div key={item} className="rounded-xl border border-[#DDE3EA] bg-white px-4 py-3 text-sm font-semibold leading-6 text-[#1E3A5F]">
-        {item}
-      </div>
+const CertificationGrid = ({ items }) => (
+  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {items.map((cert) => (
+      <article
+        key={cert.name}
+        className="group portfolio-card relative overflow-hidden rounded-2xl p-3"
+        title={cert.name}
+      >
+        <div className="flex h-44 items-center justify-center rounded-xl bg-[#F5F7FA] p-3">
+          <img
+            src={assetPath(cert.image)}
+            alt={cert.name}
+            className="max-h-full w-full object-contain"
+          />
+        </div>
+        <div className="pointer-events-none absolute inset-0 flex items-end bg-[#172033]/0 opacity-0 transition-all duration-200 group-hover:bg-[#172033]/72 group-hover:opacity-100">
+          <div className="w-full p-4">
+            <p className="rounded-xl bg-white px-4 py-3 text-sm font-bold leading-6 text-[#1E3A5F] shadow-lg">
+              {cert.name}
+            </p>
+          </div>
+        </div>
+      </article>
     ))}
   </div>
 );
 
-const Experience = ({ contactRequest }) => {
-  useEffect(() => {
-    if (!contactRequest) return;
-
-    const timer = window.setTimeout(() => {
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 80);
-
-    return () => window.clearTimeout(timer);
-  }, [contactRequest]);
-
+const Experience = () => {
   return (
     <motion.div
       className="mx-auto w-full max-w-6xl space-y-12 pb-16"
@@ -166,7 +145,7 @@ const Experience = ({ contactRequest }) => {
         </p>
         <h1 className="text-3xl font-bold text-[#172033] sm:text-4xl">技術經歷</h1>
         <p className="mt-4 text-base leading-7 text-[#5B6475]">
-          這裡整理我的技術能力、實習與工作經驗、學歷、證照與聯絡方式。
+          這裡整理我的技術能力、實習與工作經驗、學歷與證照。聯絡資訊已移到獨立頁面，方便直接查看。
         </p>
       </header>
 
@@ -234,46 +213,15 @@ const Experience = ({ contactRequest }) => {
       </section>
 
       <section>
-        <SectionHeader icon={<Award size={17} />} eyebrow="Certifications" title="主要證照" />
-        <CertificationList items={mainCertifications} />
+        <SectionHeader icon={<Award size={17} />} eyebrow="Certifications" title="主要證照">
+          證照圖片可直接瀏覽，滑過圖片會顯示證照名稱。
+        </SectionHeader>
+        <CertificationGrid items={mainCertifications} />
       </section>
 
       <section>
-        <SectionHeader icon={<Award size={17} />} eyebrow="More" title="其他證照" />
-        <CertificationList items={otherCertifications} />
-      </section>
-
-      <section>
-        <article className="portfolio-soft rounded-2xl p-6">
-          <SectionHeader icon={<UserRound size={17} />} eyebrow="About" title="關於我" />
-          <div className="space-y-4 text-base leading-8 text-[#5B6475]">
-            <p>
-              我從資訊管理背景出發，學習過程中接觸網頁開發、Python 資料處理與 AI 影像辨識，也在目前工作中參與裝置端韌體與硬體通訊整合。比起只專注單一工具，我更重視理解需求、釐清流程，並把功能實際做出來。
-            </p>
-            <p>
-              目前持續累積 C/C++、ESP32、UART / RS232、I2C、API 串接與系統整合經驗，希望讓自己的技術能力能同時理解資料、軟體與裝置端流程。
-            </p>
-          </div>
-        </article>
-      </section>
-
-      <section id="contact" className="scroll-mt-28">
-        <SectionHeader icon={<Mail size={17} />} eyebrow="Contact" title="聯絡方式" />
-        <div className="grid gap-3 md:grid-cols-2">
-          {contactLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith('http') ? '_blank' : undefined}
-              rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
-              className="portfolio-card flex items-center gap-3 rounded-2xl px-4 py-4 text-sm font-semibold text-[#172033] transition-colors hover:border-[#2A9D8F] hover:text-[#1E3A5F]"
-            >
-              <span className="rounded-full bg-[#EAF3F2] p-2 text-[#2A9D8F]">{link.icon}</span>
-              <span className="w-16 shrink-0 text-[#1E3A5F]">{link.label}</span>
-              <span className="break-all text-[#5B6475]">{link.value}</span>
-            </a>
-          ))}
-        </div>
+        <SectionHeader icon={<Award size={17} />} eyebrow="More" title="其他證照與證明" />
+        <CertificationGrid items={otherCertifications} />
       </section>
     </motion.div>
   );
