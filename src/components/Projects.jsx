@@ -48,6 +48,7 @@ const projects = [
     technical: 'HTML、CSS、JavaScript、Responsive Web Design、靜態網站切版。',
     outcome: '完成可展示的咖啡廳主題靜態網站。',
     tags: ['HTML', 'CSS', 'JavaScript', 'Responsive Web Design'],
+    link: 'https://hank920217.github.io/coffeeshop/',
     icon: <Coffee size={24} />,
   },
 ];
