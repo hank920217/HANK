@@ -34,22 +34,16 @@ const Hero = ({ setView }) => {
       </motion.div>
 
       <div className="space-y-4 max-w-2xl">
-        <motion.h1
-          className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-800 via-amber-600 to-amber-900"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
+        <h1
+          className="text-5xl md:text-7xl font-bold text-amber-900"
         >
           曾俊翰 (Howard)
-        </motion.h1>
-        <motion.p
+        </h1>
+        <p
           className="text-xl md:text-2xl text-amber-900/80 font-light"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3 }}
         >
           「將使用者需求與技術落地相結合」
-        </motion.p>
+        </p>
       </div>
 
       <div className="flex flex-wrap justify-center gap-4 mt-8">
