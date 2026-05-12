@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`;
+const resumeImage = assetPath('certs/resume.png');
 const resumePdf = assetPath('certs/resume.pdf');
 
 const Resume = () => {
@@ -14,27 +15,26 @@ const Resume = () => {
       exit={{ opacity: 0, y: -12 }}
       transition={{ duration: 0.4 }}
     >
-      <h2 className="text-4xl font-bold text-center text-amber-900 mb-8">履歷</h2>
+      <div className="mb-6 flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:justify-between">
+        <h2 className="text-4xl font-bold text-amber-900">履歷</h2>
+        <a
+          href={resumePdf}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-amber-900/20 bg-amber-900/10 px-5 py-2 text-sm font-semibold text-amber-900 transition-colors hover:bg-amber-900/20"
+        >
+          <ExternalLink size={18} />
+          開啟 PDF
+        </a>
+      </div>
 
       <div className="bg-amber-950/60 border border-amber-500/25 rounded-2xl p-4 md:p-6 shadow-2xl">
-        <div className="aspect-[768/1058] w-full rounded-xl overflow-hidden bg-amber-900/30">
-          <object
-            data={resumePdf}
-            type="application/pdf"
-            className="w-full h-full"
-            aria-label="曾俊翰履歷"
-          >
-            <div className="w-full h-full flex flex-col items-center justify-center text-amber-200/70 px-6 text-center">
-              <FileText size={56} className="mb-4 opacity-70" />
-              <p className="text-lg font-semibold mb-2">無法預覽履歷 PDF</p>
-              <a
-                href={resumePdf}
-                className="text-sm md:text-base text-amber-100 underline underline-offset-4 hover:text-amber-300"
-              >
-                開啟履歷 PDF
-              </a>
-            </div>
-          </object>
+        <div className="w-full rounded-xl overflow-hidden bg-white">
+          <img
+            src={resumeImage}
+            alt="曾俊翰履歷"
+            className="block w-full h-auto"
+          />
         </div>
       </div>
     </motion.div>
