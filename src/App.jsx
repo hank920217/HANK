@@ -7,39 +7,33 @@ import Navigation from './components/Navigation';
 import Resume from './components/Resume';
 
 function App() {
-  const [view, setView] = useState('landing'); // landing, experience, projects, resume
+  const [view, setView] = useState('landing');
+  const [contactRequest, setContactRequest] = useState(0);
+
+  const showContact = () => {
+    setView('experience');
+    setContactRequest((current) => current + 1);
+  };
 
   return (
-    <div className="min-h-screen text-warm-white font-sans selection:bg-amber-500/30">
-      
-      {/* Navigation - Always present but changes state based on view */}
-      <Navigation view={view} setView={setView} />
+    <div className="min-h-screen bg-[#F5F7FA] font-sans text-[#172033] selection:bg-[#2A9D8F]/20">
+      <Navigation view={view} setView={setView} onContact={showContact} />
 
-      <main className="relative z-10 container mx-auto min-h-screen px-4 py-8">
+      <main className="relative mx-auto min-h-screen w-full max-w-7xl px-4 pb-12 pt-24 sm:px-6 lg:px-8">
         <AnimatePresence mode="wait">
           {view === 'landing' && (
-            <Hero key="hero" setView={setView} />
+            <Hero key="hero" setView={setView} onContact={showContact} />
           )}
-          
+
+          {view === 'projects' && <Projects key="projects" />}
+
           {view === 'experience' && (
-            <Experience key="experience" />
+            <Experience key="experience" contactRequest={contactRequest} />
           )}
 
-          {view === 'projects' && (
-            <Projects key="projects" />
-          )}
-
-          {view === 'resume' && (
-            <Resume key="resume" />
-          )}
+          {view === 'resume' && <Resume key="resume" />}
         </AnimatePresence>
       </main>
-
-      {/* Decorative Glow Effects */}
-      <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-amber-600/10 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-amber-800/20 rounded-full blur-[120px]" />
-      </div>
     </div>
   );
 }

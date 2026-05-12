@@ -4,41 +4,56 @@
 
 :root {
   color-scheme: light;
+  background: #F5F7FA;
+  color: #172033;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-amber-50 text-amber-900 overflow-x-hidden;
-  /* Light Center -> Slightly Darker Edge */
-  background: radial-gradient(
-    circle at 50% 0%,
-    #fffbeb 0%, 
-    #faeadd 60%,
-    #edb88b 100%
-  );
+  margin: 0;
   min-height: 100vh;
+  overflow-x: hidden;
+  background: #F5F7FA;
+  color: #172033;
 }
 
-/* Glassmorphism Utilities - Light Mode */
-.glass-panel {
-  @apply bg-white/40 backdrop-blur-md border border-amber-900/10 shadow-xl;
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
-.glass-btn {
-  @apply bg-amber-500/10 hover:bg-amber-500/20 backdrop-blur-sm border border-amber-900/10 
-         text-amber-900 transition-all duration-300 hover:scale-105 active:scale-95;
+.portfolio-card {
+  border: 1px solid #DDE3EA;
+  background: #FFFFFF;
+  box-shadow: 0 18px 45px rgb(23 32 51 / 0.08);
 }
 
-/* Scrollbar */
+.portfolio-soft {
+  border: 1px solid #DDE3EA;
+  background: #EAF3F2;
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #faeadd;
+  background: #F5F7FA;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #a44200;
-  border-radius: 4px;
+  background: #DDE3EA;
+  border: 2px solid #F5F7FA;
+  border-radius: 999px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #873408;
+  background: #2A9D8F;
 }
