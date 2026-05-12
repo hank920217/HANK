@@ -4,12 +4,13 @@ import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Navigation from './components/Navigation';
+import Resume from './components/Resume';
 
 function App() {
-  const [view, setView] = useState('landing'); // landing, experience, projects
+  const [view, setView] = useState('landing'); // landing, experience, projects, resume
 
   return (
-    <div className="min-h-screen text-warm-white fonts-sans selection:bg-amber-500/30">
+    <div className="min-h-screen text-warm-white font-sans selection:bg-amber-500/30">
       
       {/* Navigation - Always present but changes state based on view */}
       <Navigation view={view} setView={setView} />
@@ -26,6 +27,10 @@ function App() {
 
           {view === 'projects' && (
             <Projects key="projects" />
+          )}
+
+          {view === 'resume' && (
+            <Resume key="resume" />
           )}
         </AnimatePresence>
       </main>
