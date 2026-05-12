@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
@@ -15,7 +15,7 @@ function App() {
       {/* Navigation - Always present but changes state based on view */}
       <Navigation view={view} setView={setView} />
 
-      <main className="relative z-10 container mx-auto px-4 py-8 min-h-screen flex flex-col justify-center">
+      <main className="relative z-10 container mx-auto min-h-screen px-4 py-8">
         <AnimatePresence mode="wait">
           {view === 'landing' && (
             <Hero key="hero" setView={setView} />

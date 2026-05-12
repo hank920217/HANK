@@ -1,154 +1,86 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FolderGit2, X, Trophy } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Bot, Cpu, Globe2 } from 'lucide-react';
 
-const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`;
+const projects = [
+  {
+    title: '臉部表情辨識與肌肉分析系統',
+    result: '113 學年度校內期末專題展第一名',
+    desc: '以 Python、MediaPipe 與機器學習流程建立臉部表情模型，整理影像資料、臉部特徵點與肌肉視覺化分析，用於呈現表情辨識結果。',
+    tags: ['Python', 'MediaPipe', 'OpenCV', 'Machine Learning'],
+    icon: <Bot size={24} />,
+  },
+  {
+    title: 'ESP32 / WT32-ETH01 裝置端實作',
+    result: '裝置端通訊與後台串接實作',
+    desc: '參與 ESP32 / WT32-ETH01 韌體開發，處理 GPIO 訊號讀取、UART / RS232、I2C、HTTP API 與 MQTT 等裝置端通訊流程。',
+    tags: ['ESP32', 'WT32-ETH01', 'GPIO', 'UART / RS232', 'I2C', 'API'],
+    icon: <Cpu size={24} />,
+  },
+  {
+    title: '個人履歷網站',
+    result: 'GitHub Pages 部署作品集',
+    desc: '使用 React、Tailwind CSS 與 Framer Motion 建立個人技術作品集，整合專案、經歷、履歷圖片與 PDF 連結。',
+    tags: ['React', 'Tailwind CSS', 'Framer Motion', 'GitHub Pages'],
+    icon: <Globe2 size={24} />,
+  },
+];
 
 const Projects = () => {
-    const [selectedProject, setSelectedProject] = useState(null);
+  return (
+    <motion.div
+      className="mx-auto w-full max-w-6xl pb-20 pt-16"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -12 }}
+      transition={{ duration: 0.35 }}
+    >
+      <div className="mb-10 max-w-3xl">
+        <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-amber-700">
+          Projects
+        </p>
+        <h2 className="text-4xl font-bold text-amber-950">實作專案</h2>
+        <p className="mt-4 text-base leading-7 text-amber-950/70">
+          依照成果、AI 實作、裝置端與網站建置整理，呈現從資料處理到裝置串接的完整技術經驗。
+        </p>
+      </div>
 
-    const projects = [
-        {
-            title: "臉部表情辨識系統",
-            desc: "使用 Python 與 OpenCV 進行即時臉部表情分析，應用於課堂專注度監測。",
-            tags: ["Python", "OpenCV", "AI"],
-            rank: "Award 1st",
-            certImg: assetPath("certs/US.jpg")
-        },
-        {
-            title: "球型機器人控制",
-            desc: "基於 Arduino 的球型滾動機器人，透過手機藍牙進行全向控制。",
-            tags: ["C++", "Arduino", "Bluetooth"],
-            rank: "Award 2nd",
-            certImg: assetPath("certs/highschool.jpg")
-        },
-        {
-            title: "作品集網站 (This Website)",
-            desc: "使用 React 與 Framer Motion 打造的玻璃擬態個人網站。",
-            tags: ["React", "Tailwind", "Framer Motion"],
-            rank: null,
-            certImg: null
-        }
-    ];
+      <div className="grid gap-5 lg:grid-cols-3">
+        {projects.map((project, idx) => (
+          <motion.article
+            key={project.title}
+            className="flex h-full flex-col rounded-2xl border border-amber-900/10 bg-amber-950/90 p-6 text-amber-50 shadow-2xl shadow-amber-900/10"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: idx * 0.08 }}
+          >
+            <div className="mb-5 flex items-start justify-between gap-4">
+              <div className="rounded-xl bg-amber-400/15 p-3 text-amber-300">
+                {project.icon}
+              </div>
+              <span className="rounded-full border border-amber-300/20 bg-amber-300/10 px-3 py-1 text-xs font-semibold text-amber-100">
+                {project.result}
+              </span>
+            </div>
 
-    return (
-        <motion.div 
-            className="max-w-6xl mx-auto pb-20"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-        >
-             <h2 className="text-4xl font-bold text-center text-amber-900 mb-12">專案作品</h2>
-             
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projects.map((project, idx) => (
-                    <motion.div
-                        key={idx}
-                        className="bg-amber-950/90 backdrop-blur-lg rounded-2xl p-6 relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300 border border-amber-500/20 shadow-2xl cursor-pointer"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.1 }}
-                        onClick={() => project.certImg && setSelectedProject(project)}
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-duration-500" />
-                        
-                        <div className="relative z-10 space-y-4">
-                            <div className="flex justify-between items-start">
-                                <div className="p-3 bg-amber-500/20 rounded-lg text-amber-400">
-                                    <FolderGit2 size={24} />
-                                </div>
-                                {project.rank && (
-                                    <span className="px-2 py-1 text-xs bg-amber-500/20 text-amber-200 rounded border border-amber-500/30">
-                                        {project.rank}
-                                    </span>
-                                )}
-                            </div>
+            <h3 className="text-xl font-bold leading-8 text-amber-50">{project.title}</h3>
+            <p className="mt-3 flex-1 text-sm leading-7 text-amber-100/75">{project.desc}</p>
 
-                            <h3 className="text-xl font-bold text-amber-50 transition-colors group-hover:text-amber-300">
-                                {project.title}
-                            </h3>
-                            
-                            <p className="text-amber-200/80 text-sm leading-relaxed">
-                                {project.desc}
-                            </p>
-
-                            <div className="flex flex-wrap gap-2 pt-4">
-                                {project.tags.map(tag => (
-                                    <span key={tag} className="text-xs px-2 py-1 rounded bg-amber-900/60 text-amber-300 border border-amber-800/50">
-                                        #{tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    </motion.div>
-                ))}
-             </div>
-
-             {/* Modal Overlay */}
-             <AnimatePresence>
-                {selectedProject && (
-                    <motion.div
-                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-amber-950/60 backdrop-blur-xl"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => setSelectedProject(null)}
-                    >
-                        <motion.div
-                            className="relative w-full max-w-2xl bg-amber-50/10 backdrop-blur-2xl rounded-3xl border border-amber-400/50 shadow-2xl overflow-hidden"
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.8, opacity: 0 }}
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <button 
-                                className="absolute top-4 right-4 p-2 rounded-full bg-amber-950/50 text-amber-200 hover:bg-amber-900 transition-colors z-20"
-                                onClick={() => setSelectedProject(null)}
-                            >
-                                <X size={24} />
-                            </button>
-
-                            <div className="p-8 space-y-6">
-                                <div className="flex items-center gap-3">
-                                    <div className="p-3 bg-amber-500/20 rounded-xl text-amber-500">
-                                        <Trophy size={28} />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-amber-50">{selectedProject.title} - 詳細獎狀</h3>
-                                </div>
-
-                                <div className="aspect-[3/2] w-full bg-amber-950/40 rounded-2xl border border-amber-500/20 overflow-hidden flex items-center justify-center group">
-                                    {selectedProject.certImg ? (
-                                        <img 
-                                            src={selectedProject.certImg} 
-                                            alt="Project Certificate" 
-                                            className="w-full h-full object-contain"
-                                            onError={(e) => {
-                                                e.target.style.display = 'none';
-                                                e.target.nextSibling.style.display = 'flex';
-                                            }}
-                                        />
-                                    ) : null}
-                                    <div className="hidden flex-col items-center justify-center text-amber-500/30">
-                                        <Trophy size={64} className="mb-4" />
-                                        <span className="text-lg">獎狀圖片載入中...</span>
-                                    </div>
-                                </div>
-
-                                <div className="flex justify-end">
-                                    <button 
-                                        className="px-6 py-2 rounded-full bg-amber-500 text-amber-950 font-bold hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20"
-                                        onClick={() => setSelectedProject(null)}
-                                    >
-                                        關閉
-                                    </button>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-             </AnimatePresence>
-        </motion.div>
-    );
+            <div className="mt-6 flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-amber-300/15 bg-amber-300/10 px-3 py-1 text-xs font-medium text-amber-100"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.article>
+        ))}
+      </div>
+    </motion.div>
+  );
 };
 
 export default Projects;

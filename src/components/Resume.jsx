@@ -9,14 +9,14 @@ const resumePdf = assetPath('certs/resume.pdf');
 const Resume = () => {
   return (
     <motion.div
-      className="max-w-5xl mx-auto pb-20"
+      className="mx-auto w-full max-w-5xl pb-20 pt-16"
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -12 }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.35 }}
     >
       <div className="mb-6 flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:justify-between">
-        <h2 className="text-4xl font-bold text-amber-900">履歷</h2>
+        <h2 className="text-4xl font-bold text-amber-950">履歷</h2>
         <a
           href={resumePdf}
           target="_blank"
@@ -28,12 +28,12 @@ const Resume = () => {
         </a>
       </div>
 
-      <div className="bg-amber-950/60 border border-amber-500/25 rounded-2xl p-4 md:p-6 shadow-2xl">
-        <div className="w-full rounded-xl overflow-hidden bg-white">
+      <div className="rounded-2xl border border-amber-500/25 bg-amber-950/60 p-4 shadow-2xl md:p-6">
+        <div className="w-full overflow-hidden rounded-xl bg-white">
           <img
             src={resumeImage}
             alt="曾俊翰履歷"
-            className="block w-full h-auto"
+            className="block h-auto w-full"
           />
         </div>
       </div>

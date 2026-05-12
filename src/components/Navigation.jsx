@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Home, User, FolderGit2, FileText } from 'lucide-react';
+import { FileText, FolderGit2, Home, User } from 'lucide-react';
 
 const Navigation = ({ view, setView }) => {
   const navItems = [
     { id: 'landing', label: '首頁', icon: <Home size={18} />, layoutId: 'nav-home' },
+    { id: 'projects', label: '專案', icon: <FolderGit2 size={18} />, layoutId: 'nav-proj' },
     { id: 'experience', label: '經歷', icon: <User size={18} />, layoutId: 'nav-exp' },
-    { id: 'projects', label: '作品', icon: <FolderGit2 size={18} />, layoutId: 'nav-proj' },
     { id: 'resume', label: '履歷', icon: <FileText size={18} />, layoutId: 'nav-resume' },
   ];
 
@@ -14,28 +14,28 @@ const Navigation = ({ view, setView }) => {
 
   return (
     <motion.nav
-      className="fixed top-0 right-0 p-6 z-50 flex gap-4"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
+      className="fixed top-0 right-0 z-50 p-4 sm:p-6"
+      initial={{ opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35 }}
     >
-      <div className="flex bg-amber-950/40 backdrop-blur-md rounded-full p-2 border border-amber-500/20 shadow-lg">
+      <div className="flex rounded-full border border-amber-900/10 bg-white/55 p-2 shadow-lg backdrop-blur-md">
         {navItems.map((item) => (
           <motion.button
             key={item.id}
             layoutId={item.layoutId}
             onClick={() => setView(item.id)}
             className={`
-              relative px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium transition-colors
+              relative flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold transition-colors sm:px-4
               ${view === item.id
-                ? 'text-amber-900'
-                : 'text-amber-800 hover:text-amber-900 hover:bg-amber-900/10'}
+                ? 'text-amber-950'
+                : 'text-amber-800 hover:bg-amber-900/10 hover:text-amber-950'}
             `}
           >
             {view === item.id && (
               <motion.div
                 layoutId="active-pill"
-                className="absolute inset-0 bg-amber-400 rounded-full"
+                className="absolute inset-0 rounded-full bg-amber-400"
                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                 style={{ zIndex: -1 }}
               />
