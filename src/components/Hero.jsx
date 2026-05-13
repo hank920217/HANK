@@ -109,19 +109,19 @@ const Hero = ({ setView, onContact }) => {
           </div>
         </div>
 
-        <div className="mx-auto flex w-full max-w-md flex-col gap-4 lg:max-w-lg">
+        <div className="mx-auto flex w-full max-w-sm flex-col gap-4 lg:max-w-md">
           <div className="portfolio-card rounded-3xl p-4">
             <div className="overflow-hidden rounded-2xl bg-[#EAF3F2]">
               <img
                 src={assetPath('certs/profile.jpg')}
                 alt="曾俊翰個人照片"
-                className="h-72 w-full object-cover object-top sm:h-80"
+                className="h-60 w-full object-contain object-center sm:h-72"
                 onError={(event) => {
                   event.currentTarget.style.display = 'none';
                   event.currentTarget.nextElementSibling.style.display = 'flex';
                 }}
               />
-              <div className="hidden h-72 items-center justify-center text-[#1E3A5F]/30 sm:h-80">
+              <div className="hidden h-60 items-center justify-center text-[#1E3A5F]/30 sm:h-72">
                 <User size={56} />
               </div>
             </div>
