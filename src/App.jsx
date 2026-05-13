@@ -18,7 +18,7 @@ function App() {
     <div className="min-h-screen bg-[#F5F7FA] font-sans text-[#172033] selection:bg-[#2A9D8F]/20">
       <Navigation view={view} setView={setView} />
 
-      <main className="relative mx-auto min-h-screen w-full max-w-7xl px-4 pb-12 pt-24 sm:px-6 lg:px-8">
+      <main className="relative mx-auto min-h-screen w-full max-w-7xl px-4 pb-12 pt-20 sm:px-6 sm:pt-24 lg:px-8">
         <AnimatePresence mode="wait">
           {view === 'landing' && (
             <Hero key="hero" setView={setView} onContact={showContact} />
