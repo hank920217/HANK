@@ -13,12 +13,12 @@ const navItems = [
 const Navigation = ({ view, setView }) => {
   return (
     <motion.nav
-      className="fixed left-1/2 top-3 z-50 w-[calc(100%-1rem)] max-w-5xl -translate-x-1/2 px-1 sm:top-4 sm:px-2"
+      className="fixed inset-x-0 top-3 z-50 mx-auto w-[calc(100%-1rem)] max-w-5xl px-1 sm:top-4 sm:px-2"
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="mx-auto grid grid-cols-5 gap-1 rounded-2xl border border-[#DDE3EA] bg-white/95 p-1.5 shadow-lg shadow-[#172033]/10 backdrop-blur sm:flex sm:items-center sm:gap-2 sm:overflow-x-auto sm:rounded-full sm:p-2">
+      <div className="mx-auto grid grid-cols-5 gap-1 rounded-2xl border border-[#DDE3EA] bg-white/95 p-1.5 shadow-lg shadow-[#172033]/10 backdrop-blur lg:flex lg:items-center lg:gap-2 lg:overflow-x-auto lg:rounded-full lg:p-2">
         {navItems.map((item) => {
           const active = view === item.id;
 
@@ -27,7 +27,7 @@ const Navigation = ({ view, setView }) => {
               key={item.id}
               type="button"
               onClick={() => setView(item.id)}
-              className={`relative flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl px-1.5 py-2 text-[11px] font-semibold leading-none transition-colors sm:flex-row sm:gap-2 sm:rounded-full sm:px-4 sm:text-sm ${
+              className={`relative flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl px-1.5 py-2 text-[11px] font-semibold leading-none transition-colors lg:flex-row lg:gap-2 lg:rounded-full lg:px-4 lg:text-sm ${
                 active
                   ? 'bg-[#1E3A5F] text-white'
                   : 'text-[#5B6475] hover:bg-[#EAF3F2] hover:text-[#1E3A5F]'
@@ -35,8 +35,8 @@ const Navigation = ({ view, setView }) => {
               aria-current={active ? 'page' : undefined}
             >
               <span className="shrink-0">{item.icon}</span>
-              <span className="max-w-full truncate sm:hidden">{item.label}</span>
-              <span className="hidden sm:inline">{item.desktopLabel ?? item.label}</span>
+              <span className="max-w-full truncate lg:hidden">{item.label}</span>
+              <span className="hidden lg:inline">{item.desktopLabel ?? item.label}</span>
             </button>
           );
         })}

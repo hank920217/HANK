@@ -118,7 +118,7 @@ const CertificationGrid = ({ items }) => (
             className="max-h-full w-full object-contain"
           />
         </div>
-        <div className="pointer-events-none absolute inset-0 flex items-end bg-[#172033]/0 opacity-0 transition-all duration-200 group-hover:bg-[#172033]/72 group-hover:opacity-100">
+        <div className="pointer-events-none absolute inset-0 flex items-end bg-[#172033]/75 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
           <div className="w-full p-4">
             <p className="rounded-xl bg-white px-4 py-3 text-sm font-bold leading-6 text-[#1E3A5F] shadow-lg">
               {cert.name}
