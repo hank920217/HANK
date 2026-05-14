@@ -163,9 +163,6 @@ const Experience = () => {
         <h1 className="text-3xl font-bold text-[#172033] sm:text-4xl">
           技術經歷
         </h1>
-        <p className="mt-4 text-base leading-7 text-[#5B6475]">
-          這裡整理我的技術能力、實習與工作經驗、學歷與證照。聯絡資訊已移到獨立頁面，方便直接查看。
-        </p>
       </header>
 
       <section>
