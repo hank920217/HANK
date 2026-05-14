@@ -121,26 +121,22 @@ const SectionHeader = ({ icon, eyebrow, title, children }) => (
 );
 
 const CertificationGrid = ({ items }) => (
-  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  <div className="grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
     {items.map((cert) => (
       <article
         key={cert.name}
-        className="group portfolio-card relative overflow-hidden rounded-2xl p-3"
+        className="group relative overflow-hidden rounded-xl"
         title={cert.name}
       >
-        <div className="flex h-44 items-center justify-center rounded-xl bg-[#F5F7FA] p-3">
-          <img
-            src={assetPath(cert.image)}
-            alt={cert.name}
-            className="max-h-full w-full object-contain"
-          />
-        </div>
-        <div className="pointer-events-none absolute inset-0 flex items-end bg-[#172033]/75 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-          <div className="w-full p-4">
-            <p className="rounded-xl bg-white px-4 py-3 text-sm font-bold leading-6 text-[#1E3A5F] shadow-lg">
-              {cert.name}
-            </p>
-          </div>
+        <img
+          src={assetPath(cert.image)}
+          alt={cert.name}
+          className="h-64 w-full object-contain sm:h-72"
+        />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-[#172033]/70 to-transparent p-4 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+          <p className="rounded-full bg-white px-4 py-2 text-sm font-bold leading-6 text-[#1E3A5F] shadow-lg">
+            {cert.name}
+          </p>
         </div>
       </article>
     ))}
