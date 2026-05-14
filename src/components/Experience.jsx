@@ -37,13 +37,7 @@ const skillGroups = [
   {
     title: "裝置端與通訊",
     icon: <Cpu size={20} />,
-    items: [
-      "ESP32-C6",
-      "ESP32-P4",
-      "WT32-ETH01",
-      "Device Integration",
-      "Network",
-    ],
+    items: ["ESP32-C6", "ESP32-P4", "WT32-ETH01", "Device Integration"],
   },
   {
     title: "資訊設備與系統",
