@@ -1,72 +1,130 @@
-# Hank Portfolio Website
+# Howard Portfolio Website
 
-一個使用 **React + Vite + Tailwind CSS + Framer Motion** 建立的個人作品集網站，重點在於：
+個人技術作品集網站，使用 React、Vite 與 Tailwind CSS 建置，部署於 GitHub Pages。
 
-- 以玻璃擬態與暖色系風格呈現視覺設計
-- 以流暢的頁面轉場與元件動畫提升互動感
-- 集中展示個人學經歷、證照與專案成果
+正式網站：
+
+```text
+https://hank920217.github.io/HANK/
+```
+
+## Website Positioning
+
+本網站用來呈現 Howard 的整體技術經驗、專案成果與履歷資訊，不限定為單一職務方向。
+
+主要呈現內容包含：
+
+- 資訊管理背景
+- 軟體與網頁實作
+- AI 影像辨識專題
+- 裝置端與系統整合經驗
+- 實習、工作經驗、學歷與證照
+- PNG 履歷瀏覽與 PDF 履歷連結
+
+## Pages
+
+網站使用 React state-based page switching，主要頁面如下：
+
+```text
+landing     首頁 Hero 與快速入口
+projects    實作專案
+experience  技術經歷、學歷與證照
+resume      履歷圖片與 PDF
+contact     聯絡方式
+```
 
 ## Tech Stack
 
-- React 19
-- Vite 7
-- Tailwind CSS 3
+- React
+- Vite
+- Tailwind CSS
 - Framer Motion
 - Lucide React
+- GitHub Pages
 
-## 功能特色
-
-- 首頁 Hero 區塊（個人資訊與導覽入口）
-- 經歷頁（學歷時間軸、證照牆、工作經歷）
-- 作品頁（專案卡片與獎狀彈窗預覽）
-- 共享動態導覽列與頁面切換動畫
-- 圖片載入失敗時的 fallback 顯示
-
-## 專案結構
+## Project Structure
 
 ```text
 src/
-  App.jsx                  # 主頁面切換與整體布局
+  App.jsx
   components/
-    Hero.jsx               # 首頁 Hero 區塊
-    Experience.jsx         # 經歷與證照展示
-    Projects.jsx           # 專案列表與 modal
-    Navigation.jsx         # 導覽列
+    Hero.jsx
+    Navigation.jsx
+    Projects.jsx
+    Experience.jsx
+    Resume.jsx
+    Contact.jsx
+
 public/
-  certs/                   # 個人證照與獎狀圖片資源
+  certs/
+    resume.png
+    resume.pdf
+    profile.jpg
+    certificate images
 ```
 
-## 網站連結
+## Local Development
 
-- 線上作品集：https://hank920217.github.io/HANK/
-
-## 快速開始
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Start development server:
+
+```bash
 npm run dev
 ```
 
-開發伺服器啟動後，預設可在本機開啟：
+Default local URL:
 
-- http://localhost:5173
-
-## 可用指令
-
-```bash
-npm run dev      # 啟動開發模式
-npm run build    # 產生正式版輸出到 dist/
-npm run preview  # 本機預覽 build 結果
-npm run lint     # 執行 ESLint 檢查
+```text
+http://localhost:5173/HANK/
 ```
 
-## 部署
-
-此專案已在 `package.json` 提供 GitHub Pages 的部署腳本：
+## Common Commands
 
 ```bash
-npm run predeploy
+npm run lint
+npm run build
+npm run preview
+```
+
+## Deployment
+
+This project is deployed to GitHub Pages through the `gh-pages` branch.
+
+Run:
+
+```bash
 npm run deploy
 ```
 
-> `deploy` 會將 `dist/` 內容發佈到 GitHub Pages（透過 `gh-pages`）。
+Deployment flow:
+
+```text
+1. npm run build
+2. Generate production files in dist/
+3. Publish dist/ to gh-pages branch
+4. GitHub Pages serves the gh-pages branch
+```
+
+After deployment, confirm the official site has loaded the latest asset files:
+
+```text
+https://hank920217.github.io/HANK/
+```
+
+## Git Notes
+
+Pushing to `main` updates the source code only. The website itself updates after `npm run deploy` publishes the latest `dist/` output to `gh-pages`.
+
+Recommended update flow:
+
+```bash
+git add .
+git commit -m "update portfolio"
+git push origin main
+npm run deploy
+```
