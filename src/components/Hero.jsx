@@ -22,12 +22,6 @@ const skillTags = [
   "JavaScript",
 ];
 
-const compactHighlights = [
-  "臉部表情模型建置",
-  "裝置端通訊整合",
-  "高雄榮總資訊部實習",
-];
-
 const Hero = ({ setView, onContact }) => {
   const resumePdf = assetPath("certs/resume.pdf");
 
