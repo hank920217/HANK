@@ -33,7 +33,7 @@ const Hero = ({ setView, onContact }) => {
       exit={{ opacity: 0, scale: 0.98 }}
       transition={{ duration: 0.45 }}
     >
-      <section className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
+      <section className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12">
         <div className="space-y-6 text-left">
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[#DDE3EA] bg-white px-4 py-2 text-sm font-semibold text-[#1E3A5F] shadow-sm">
             <BriefcaseBusiness size={16} />
@@ -72,11 +72,11 @@ const Hero = ({ setView, onContact }) => {
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 xl:flex-nowrap">
             <button
               type="button"
               onClick={() => setView("projects")}
-              className="inline-flex items-center gap-2 rounded-full bg-[#1E3A5F] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-[#1E3A5F]/15 transition-colors hover:bg-[#2A9D8F]"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#1E3A5F] px-4 py-3 text-sm font-bold text-white shadow-lg shadow-[#1E3A5F]/15 transition-colors hover:bg-[#2A9D8F] sm:px-5"
             >
               查看實作專案
               <ArrowRight size={18} />
@@ -84,7 +84,7 @@ const Hero = ({ setView, onContact }) => {
             <button
               type="button"
               onClick={() => setView("experience")}
-              className="inline-flex items-center gap-2 rounded-full border border-[#DDE3EA] bg-white px-5 py-3 text-sm font-bold text-[#1E3A5F] transition-colors hover:border-[#2A9D8F] hover:text-[#2A9D8F]"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#DDE3EA] bg-white px-4 py-3 text-sm font-bold text-[#1E3A5F] transition-colors hover:border-[#2A9D8F] hover:text-[#2A9D8F] sm:px-5"
             >
               <FileText size={18} />
               查看技術經歷
@@ -93,7 +93,7 @@ const Hero = ({ setView, onContact }) => {
               href={resumePdf}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-[#DDE3EA] bg-white px-5 py-3 text-sm font-bold text-[#1E3A5F] transition-colors hover:border-[#2A9D8F] hover:text-[#2A9D8F]"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#DDE3EA] bg-white px-4 py-3 text-sm font-bold text-[#1E3A5F] transition-colors hover:border-[#2A9D8F] hover:text-[#2A9D8F] sm:px-5"
             >
               <Download size={18} />
               下載 PDF 履歷
@@ -101,7 +101,7 @@ const Hero = ({ setView, onContact }) => {
             <button
               type="button"
               onClick={onContact}
-              className="inline-flex items-center gap-2 rounded-full border border-[#2A9D8F]/35 bg-[#EAF3F2] px-5 py-3 text-sm font-bold text-[#1E3A5F] transition-colors hover:bg-[#2A9D8F] hover:text-white"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#2A9D8F]/35 bg-[#EAF3F2] px-4 py-3 text-sm font-bold text-[#1E3A5F] transition-colors hover:bg-[#2A9D8F] hover:text-white sm:px-5"
             >
               <Mail size={18} />
               聯絡我
