@@ -34,8 +34,8 @@ const Hero = ({ setView, onContact }) => {
       transition={{ duration: 0.45 }}
     >
       <section className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12">
-        <div className="space-y-6 text-left">
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[#DDE3EA] bg-white px-4 py-2 text-sm font-semibold text-[#1E3A5F] shadow-sm">
+        <div className="space-y-6 text-center lg:text-left">
+          <span className="mx-auto inline-flex w-fit items-center gap-2 rounded-full border border-[#DDE3EA] bg-white px-4 py-2 text-sm font-semibold text-[#1E3A5F] shadow-sm lg:mx-0">
             <BriefcaseBusiness size={16} />
             Personal Technical Portfolio
           </span>
@@ -47,7 +47,7 @@ const Hero = ({ setView, onContact }) => {
             <p className="text-xl font-semibold text-[#1E3A5F] sm:text-2xl">
               資訊管理背景｜軟體、AI 與裝置端實作
             </p>
-            <div className="max-w-3xl space-y-4 text-base leading-8 text-[#5B6475] sm:text-lg">
+            <div className="mx-auto max-w-3xl space-y-4 text-base leading-8 text-[#5B6475] sm:text-lg lg:mx-0">
               <p>
                 資訊管理系畢業，目前專注於裝置端韌體開發與系統整合，具備 ESP32 /
                 WT32-ETH01
@@ -61,7 +61,7 @@ const Hero = ({ setView, onContact }) => {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
             {skillTags.map((tag) => (
               <span
                 key={tag}
@@ -72,7 +72,7 @@ const Hero = ({ setView, onContact }) => {
             ))}
           </div>
 
-          <div className="hidden flex-wrap gap-3 lg:flex xl:flex-nowrap">
+          <div className="hidden flex-wrap justify-start gap-3 lg:flex xl:flex-nowrap">
             <button
               type="button"
               onClick={() => setView("projects")}
@@ -127,7 +127,7 @@ const Hero = ({ setView, onContact }) => {
             </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 text-center sm:grid-cols-2 lg:text-left">
             <article className="portfolio-card rounded-2xl p-5 lg:-translate-y-2">
               <div className="mb-2 flex items-center gap-2 text-sm font-bold text-[#1E3A5F]">
                 <Trophy size={18} className="text-[#2A9D8F]" />
@@ -149,7 +149,7 @@ const Hero = ({ setView, onContact }) => {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-3 lg:hidden">
+        <div className="flex flex-wrap justify-center gap-3 lg:hidden">
           <button
             type="button"
             onClick={() => setView("projects")}
