@@ -18,8 +18,6 @@ const skillTags = [
   "C / C++",
   "MediaPipe",
   "ESP32",
-  "GPIO",
-  "UART / RS232",
   "HTML / CSS",
   "JavaScript",
 ];

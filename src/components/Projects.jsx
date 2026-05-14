@@ -20,12 +20,12 @@ const projects = [
     title: 'ESP32 / WT32-ETH01 裝置端實作',
     period: '2026/02 – 至今',
     description:
-      '以 ESP32 / WT32-ETH01 為核心參與裝置端實作，內容包含 GPIO 訊號讀取、Counter 狀態判斷、UART / RS232 通訊、I2C 顯示模組、Ethernet / Wi-Fi 網路連線，以及 HTTP API / MQTT 後台串接。此專案著重在裝置端資料讀取、通訊流程、狀態同步與異常處理。',
+      '以 ESP32 / WT32-ETH01 為核心參與裝置端實作，內容包含裝置狀態判斷、網路連線、後台串接與整合測試。此專案著重在裝置端資料讀取、通訊流程、狀態同步與異常處理。',
     role: '協助裝置端韌體開發、腳位規劃、通訊流程整理、異常測試與文件整理。',
     technical:
-      'GPIO High / Low 訊號讀取、Counter 狀態判斷、UART / RS232 封包解析、I2C OLED 顯示、HTTP API / MQTT 串接。',
+      '裝置狀態判斷、通訊流程整理、網路連線、後台串接、整合測試。',
     outcome: '建立可維護的裝置端測試與整合流程，協助硬體與後台對接。',
-    tags: ['ESP32', 'WT32-ETH01', 'C / C++', 'GPIO', 'UART / RS232', 'I2C', 'HTTP API', 'MQTT'],
+    tags: ['ESP32', 'WT32-ETH01', 'C / C++', 'Device Integration', 'Network'],
     icon: <Cpu size={24} />,
   },
   {

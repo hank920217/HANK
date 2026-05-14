@@ -31,7 +31,7 @@ const skillGroups = [
   {
     title: '裝置端與通訊',
     icon: <Cpu size={20} />,
-    items: ['ESP32', 'WT32-ETH01', 'GPIO', 'UART / RS232', 'I2C', 'HTTP API', 'MQTT'],
+    items: ['ESP32', 'WT32-ETH01', 'C / C++', 'Device Integration', 'Network'],
   },
   {
     title: '資訊設備與系統',
@@ -45,7 +45,7 @@ const workItems = [
     title: '魔法堂科技有限公司｜韌體工程師',
     period: '2026/02 – 至今',
     description:
-      '參與 ESP32 / WT32-ETH01 裝置端韌體相關實作，協助 GPIO 訊號讀取、UART / RS232 通訊、I2C 顯示模組與後台資料串接。工作內容包含裝置端測試、腳位規劃、通訊流程整理、異常排查與文件整理。',
+      '參與 ESP32 / WT32-ETH01 裝置端韌體相關實作，協助裝置狀態判斷、網路連線與後台資料串接。工作內容包含裝置端測試、腳位規劃、通訊流程整理、異常排查與文件整理。',
   },
   {
     title: '高雄榮民總醫院｜資訊部實習生',
