@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { BriefcaseBusiness, FileText, FolderGit2, Home, Mail } from 'lucide-react';
 
 const navItems = [
-  { id: 'landing', label: '首頁', icon: <Home size={17} /> },
-  { id: 'projects', label: '專案', desktopLabel: '實作專案', icon: <FolderGit2 size={17} /> },
-  { id: 'experience', label: '經歷', desktopLabel: '技術經歷', icon: <BriefcaseBusiness size={17} /> },
-  { id: 'resume', label: '履歷', icon: <FileText size={17} /> },
-  { id: 'contact', label: '聯絡', desktopLabel: '聯絡我', icon: <Mail size={17} /> },
+  { id: 'landing', label: 'Home', icon: <Home size={17} /> },
+  { id: 'projects', label: 'Projects', icon: <FolderGit2 size={17} /> },
+  { id: 'experience', label: 'Experience', icon: <BriefcaseBusiness size={17} /> },
+  { id: 'resume', label: 'Resume', icon: <FileText size={17} /> },
+  { id: 'contact', label: 'Contact', icon: <Mail size={17} /> },
 ];
 
 const Navigation = ({ view, setView }) => {
@@ -35,8 +35,7 @@ const Navigation = ({ view, setView }) => {
               aria-current={active ? 'page' : undefined}
             >
               <span className="shrink-0">{item.icon}</span>
-              <span className="max-w-full truncate lg:hidden">{item.label}</span>
-              <span className="hidden lg:inline">{item.desktopLabel ?? item.label}</span>
+              <span className="max-w-full truncate">{item.label}</span>
             </button>
           );
         })}
