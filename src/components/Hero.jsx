@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   BriefcaseBusiness,
@@ -9,25 +9,29 @@ import {
   Mail,
   Trophy,
   User,
-} from 'lucide-react';
+} from "lucide-react";
 
 const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`;
 
 const skillTags = [
-  'Python',
-  'C / C++',
-  'MediaPipe',
-  'ESP32',
-  'GPIO',
-  'UART / RS232',
-  'HTML / CSS',
-  'JavaScript',
+  "Python",
+  "C / C++",
+  "MediaPipe",
+  "ESP32",
+  "GPIO",
+  "UART / RS232",
+  "HTML / CSS",
+  "JavaScript",
 ];
 
-const compactHighlights = ['臉部表情模型建置', '裝置端通訊整合', '高雄榮總資訊部實習'];
+const compactHighlights = [
+  "臉部表情模型建置",
+  "裝置端通訊整合",
+  "高雄榮總資訊部實習",
+];
 
 const Hero = ({ setView, onContact }) => {
-  const resumePdf = assetPath('certs/resume.pdf');
+  const resumePdf = assetPath("certs/resume.pdf");
 
   return (
     <motion.div
@@ -53,10 +57,14 @@ const Hero = ({ setView, onContact }) => {
             </p>
             <div className="max-w-3xl space-y-4 text-base leading-8 text-[#5B6475] sm:text-lg">
               <p>
-                資訊管理系畢業，具備 Python、C/C++、HTML、CSS、JavaScript 與系統整合基礎。
+                資訊管理系畢業，目前專注於裝置端韌體開發與系統整合，具備 ESP32 /
+                WT32-ETH01
+                實機開發、通訊流程整理、設備狀態追蹤與後台串接驗證經驗。
               </p>
               <p>
-                曾完成臉部表情辨識與肌肉分析系統，負責臉部表情模型建置，並獲得 113 學年度校內期末專題展第一名。目前也參與 ESP32 / WT32-ETH01 裝置端韌體、GPIO 訊號讀取、UART / RS232 通訊與後台串接相關實作。
+                大學期間完成「臉部表情辨識與肌肉分析」系統，負責表情辨識模型建置與辨識流程驗證，並獲得
+                113 學年度校內期末專題展第一名。具備將 AI
+                影像辨識、硬體裝置與系統流程整合為實作成果的經驗。
               </p>
             </div>
           </div>
@@ -75,7 +83,7 @@ const Hero = ({ setView, onContact }) => {
           <div className="flex flex-wrap gap-3">
             <button
               type="button"
-              onClick={() => setView('projects')}
+              onClick={() => setView("projects")}
               className="inline-flex items-center gap-2 rounded-full bg-[#1E3A5F] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-[#1E3A5F]/15 transition-colors hover:bg-[#2A9D8F]"
             >
               查看實作專案
@@ -83,7 +91,7 @@ const Hero = ({ setView, onContact }) => {
             </button>
             <button
               type="button"
-              onClick={() => setView('experience')}
+              onClick={() => setView("experience")}
               className="inline-flex items-center gap-2 rounded-full border border-[#DDE3EA] bg-white px-5 py-3 text-sm font-bold text-[#1E3A5F] transition-colors hover:border-[#2A9D8F] hover:text-[#2A9D8F]"
             >
               <FileText size={18} />
@@ -113,12 +121,12 @@ const Hero = ({ setView, onContact }) => {
           <div className="portfolio-card rounded-3xl p-4">
             <div className="overflow-hidden rounded-2xl bg-[#EAF3F2]">
               <img
-                src={assetPath('certs/profile.jpg')}
+                src={assetPath("certs/profile.jpg")}
                 alt="曾俊翰個人照片"
                 className="h-60 w-full object-contain object-center sm:h-72"
                 onError={(event) => {
-                  event.currentTarget.style.display = 'none';
-                  event.currentTarget.nextElementSibling.style.display = 'flex';
+                  event.currentTarget.style.display = "none";
+                  event.currentTarget.nextElementSibling.style.display = "flex";
                 }}
               />
               <div className="hidden h-60 items-center justify-center text-[#1E3A5F]/30 sm:h-72">
@@ -143,7 +151,7 @@ const Hero = ({ setView, onContact }) => {
                 目前實作
               </div>
               <p className="text-sm leading-6 text-[#5B6475]">
-                ESP32 / WT32-ETH01、GPIO、UART / RS232、I2C
+                ESP32、WT32-ETH01、 Media Pipe、OpenCV、Python、C++
               </p>
             </article>
           </div>
