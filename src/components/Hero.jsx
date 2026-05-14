@@ -150,16 +150,6 @@ const Hero = ({ setView, onContact }) => {
         </div>
       </section>
 
-      <section className="portfolio-soft flex flex-wrap justify-center gap-3 rounded-2xl px-4 py-4">
-        {compactHighlights.map((item) => (
-          <span
-            key={item}
-            className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#1E3A5F] shadow-sm"
-          >
-            {item}
-          </span>
-        ))}
-      </section>
     </motion.div>
   );
 };
