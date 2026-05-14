@@ -72,7 +72,7 @@ const Hero = ({ setView, onContact }) => {
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-3 xl:flex-nowrap">
+          <div className="hidden flex-wrap gap-3 lg:flex xl:flex-nowrap">
             <button
               type="button"
               onClick={() => setView("projects")}
@@ -147,6 +147,42 @@ const Hero = ({ setView, onContact }) => {
               </p>
             </article>
           </div>
+        </div>
+
+        <div className="flex flex-wrap gap-3 lg:hidden">
+          <button
+            type="button"
+            onClick={() => setView("projects")}
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#1E3A5F] px-4 py-3 text-sm font-bold text-white shadow-lg shadow-[#1E3A5F]/15 transition-colors hover:bg-[#2A9D8F] sm:px-5"
+          >
+            查看實作專案
+            <ArrowRight size={18} />
+          </button>
+          <button
+            type="button"
+            onClick={() => setView("experience")}
+            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#DDE3EA] bg-white px-4 py-3 text-sm font-bold text-[#1E3A5F] transition-colors hover:border-[#2A9D8F] hover:text-[#2A9D8F] sm:px-5"
+          >
+            <FileText size={18} />
+            查看技術經歷
+          </button>
+          <a
+            href={resumePdf}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#DDE3EA] bg-white px-4 py-3 text-sm font-bold text-[#1E3A5F] transition-colors hover:border-[#2A9D8F] hover:text-[#2A9D8F] sm:px-5"
+          >
+            <Download size={18} />
+            下載 PDF 履歷
+          </a>
+          <button
+            type="button"
+            onClick={onContact}
+            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#2A9D8F]/35 bg-[#EAF3F2] px-4 py-3 text-sm font-bold text-[#1E3A5F] transition-colors hover:bg-[#2A9D8F] hover:text-white sm:px-5"
+          >
+            <Mail size={18} />
+            聯絡我
+          </button>
         </div>
       </section>
 
