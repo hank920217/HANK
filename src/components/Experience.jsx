@@ -101,8 +101,8 @@ const otherCertifications = [
   { name: "EEC-ERP 軟體應用－配銷模組", image: "certs/ESAP.jpg" },
   { name: "EEC 企業電子化助理規劃師", image: "certs/EAP.jpg" },
   { name: "PVQC 專業英文詞彙能力", image: "certs/PVQC_1.jpg" },
-  { name: "全民英檢相關證明", image: "certs/US.jpg" },
-  { name: "高中學習歷程相關證明", image: "certs/highschool.jpg" },
+  { name: "大學專題競賽獎狀", image: "certs/US.jpg" },
+  { name: "高中專題競賽獎狀", image: "certs/highschool.jpg" },
 ];
 
 const SectionHeader = ({ icon, eyebrow, title, children }) => (
